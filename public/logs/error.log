@@ -1,0 +1,144 @@
+[2017-07-24 11:09:26]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=MkZKLMngSQ8xEk588Q4lrPNMt2ceQ5cWMuGuIpqS
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=MkZKLMngSQ8xEk588Q4lrPNMt2ceQ5cWMuGuIpqS` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:09:28]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=BDLyMyXxUxQ2p4KZ6ykPLb8Fl6fbFy2hYpTQRfWI
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=BDLyMyXxUxQ2p4KZ6ykPLb8Fl6fbFy2hYpTQRfWI` resulted in a `500 Internal Server Error` response:
+{"error":"The requested scope is invalid, unknown, or malformed. Check the \"bookings.read\" scope."}
+
+---------
+[2017-07-24 11:09:28]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=BDLyMyXxUxQ2p4KZ6ykPLb8Fl6fbFy2hYpTQRfWI
+Error:    {"url":"https:\/\/api.hng.tech\/auth\/users\/login?access_token=BDLyMyXxUxQ2p4KZ6ykPLb8Fl6fbFy2hYpTQRfWI","params":{"email":"usman@hotels.ng","password":"product1!","application":"Fly.Africa","access_token":"BDLyMyXxUxQ2p4KZ6ykPLb8Fl6fbFy2hYpTQRfWI","_method":"POST"},"options":[]}
+---------
+[2017-07-24 11:09:58]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=poXRluJihO1589Sm4S31MiQ1ysuDibfZokyw8SsN
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=poXRluJihO1589Sm4S31MiQ1ysuDibfZokyw8SsN` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:10:00]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=8TwNzSbaeopGQsmNVLQc5KbixD22D7hyb4QJwncu
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=8TwNzSbaeopGQsmNVLQc5KbixD22D7hyb4QJwncu` resulted in a `500 Internal Server Error` response:
+{"error":"The requested scope is invalid, unknown, or malformed. Check the \"bookings.read\" scope."}
+
+---------
+[2017-07-24 11:10:00]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=8TwNzSbaeopGQsmNVLQc5KbixD22D7hyb4QJwncu
+Error:    {"url":"https:\/\/api.hng.tech\/auth\/users\/login?access_token=8TwNzSbaeopGQsmNVLQc5KbixD22D7hyb4QJwncu","params":{"email":"usman@hotels.ng","password":"product1!","application":"Fly.Africa","access_token":"8TwNzSbaeopGQsmNVLQc5KbixD22D7hyb4QJwncu","_method":"POST"},"options":[]}
+---------
+[2017-07-24 11:12:04]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=3W1trBWWM47Qic6gN4d6magffVNfJgHXYRxBis9i
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=3W1trBWWM47Qic6gN4d6magffVNfJgHXYRxBis9i` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:12:06]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=hr3C7h7Y3QTwconf74BbVCUAqveaRgF19K8FZNh6
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=hr3C7h7Y3QTwconf74BbVCUAqveaRgF19K8FZNh6` resulted in a `500 Internal Server Error` response:
+{"error":"The requested scope is invalid, unknown, or malformed. Check the \"bookings.read\" scope."}
+
+---------
+[2017-07-24 11:12:06]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=hr3C7h7Y3QTwconf74BbVCUAqveaRgF19K8FZNh6
+Error:    {"url":"https:\/\/api.hng.tech\/auth\/users\/login?access_token=hr3C7h7Y3QTwconf74BbVCUAqveaRgF19K8FZNh6","params":{"email":"usman@hotels.ng","password":"product1!","application":"Fly.Africa","access_token":"hr3C7h7Y3QTwconf74BbVCUAqveaRgF19K8FZNh6","_method":"POST"},"options":[]}
+---------
+[2017-07-24 11:16:56]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=r3uNLQjkhgOsUMDEfmJL0vvg73Jg5PZbFhj7D8n6
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=r3uNLQjkhgOsUMDEfmJL0vvg73Jg5PZbFhj7D8n6` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:18:30]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=NLtCTWysN5EVTnuHvH7zEboL9Xkp6eaAtsWHXpwI
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=NLtCTWysN5EVTnuHvH7zEboL9Xkp6eaAtsWHXpwI` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:19:19]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=PnSZX8pv8DJ8kprQ3KsyWwQMT1C5zjpFPhUsT7jZ
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=PnSZX8pv8DJ8kprQ3KsyWwQMT1C5zjpFPhUsT7jZ` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:26:53]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=IpltVrgOJyszlQvG6m4iJCFw0BIIUP00eiT6Kw6d
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=IpltVrgOJyszlQvG6m4iJCFw0BIIUP00eiT6Kw6d` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:32:06]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=x64YxC5bt7aNI8N3fF7Qw1STzfTFUr6k2R8uGbgq
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=x64YxC5bt7aNI8N3fF7Qw1STzfTFUr6k2R8uGbgq` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:32:48]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=MuOP8vLEyh1McaFhYQO8z2Eds9vw5cURoGBshTph
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=MuOP8vLEyh1McaFhYQO8z2Eds9vw5cURoGBshTph` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:36:31]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=GLLVwnsIGaGNFb7iIkL6P69joPPd50Vly2CGtz4D
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=GLLVwnsIGaGNFb7iIkL6P69joPPd50Vly2CGtz4D` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:43:13]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=QrmY3H7SbpzMv6OWmV7N6wtdzys0tkgpnLP4mD79
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=QrmY3H7SbpzMv6OWmV7N6wtdzys0tkgpnLP4mD79` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 11:46:33]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=2CyTMsktfrDdnOKX7MmvpCgbJioxikp0R3eokZLN
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=2CyTMsktfrDdnOKX7MmvpCgbJioxikp0R3eokZLN` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 01:08:41]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=1nNhIb4J9C9qEZxxDbyH3KxJZud1PVy5DRBkiiIz
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=1nNhIb4J9C9qEZxxDbyH3KxJZud1PVy5DRBkiiIz` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 01:10:54]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=BxY4jmb0yaa1DsyrWdI9cITgd4UfThTYTeIG8YrI
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=BxY4jmb0yaa1DsyrWdI9cITgd4UfThTYTeIG8YrI` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 01:48:00]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=JFIKfuPOxjSPEKdWZf8X4UchUa7gDqPBjLYwf8yN
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=JFIKfuPOxjSPEKdWZf8X4UchUa7gDqPBjLYwf8yN` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 01:49:17]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=JB5P4ySnVWqx3UFJ1wriCzPDThw3IjhA6V5SsD6V
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=JB5P4ySnVWqx3UFJ1wriCzPDThw3IjhA6V5SsD6V` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 01:51:01]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=q9OUS7zxXrUgwzFENQHm4uTtmNDtLWcslJsXKg0J
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=q9OUS7zxXrUgwzFENQHm4uTtmNDtLWcslJsXKg0J` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-24 03:14:29]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=OTd6U4huDycYMdsvl4HSmEWZrZzYAg9nMEThpGZf
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=OTd6U4huDycYMdsvl4HSmEWZrZzYAg9nMEThpGZf` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-25 10:36:00]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=SjSBQQExRbrglBotuxWrFHSbTNDLyQp5cCbeKpap
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=SjSBQQExRbrglBotuxWrFHSbTNDLyQp5cCbeKpap` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
