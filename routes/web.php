@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => ['crsauth']], function () {
 
-    Route::get('/', 'HomeController@home');
+    Route::get('/', 'HomeController@index');
 
     Route::get('/dashboard', 'HomeController@index');
 
@@ -23,8 +23,11 @@ Route::group(['middleware' => ['crsauth']], function () {
 	// Includes transfer routes
 	require_once('transfer.php');
 
-	// Includes transfer routes
+	// Includes admin routes
 	require_once('admin.php');
+
+	// Includes admin routes
+	require_once('banks.php');
 
 });
 
@@ -33,6 +36,7 @@ Route::group(['middleware' => ['crsauth']], function () {
 Route::get('/theme', 'HomeController@theme');
 
 Route::get('/login', 'AuthController@showLogin');
+
 Route::get('/logout', 'AuthController@logout');
 
 Route::post('/login', 'AuthController@login');

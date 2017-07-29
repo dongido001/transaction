@@ -11,7 +11,14 @@
 |
 */
 
-/**
-* List all Prepayments
-*/
-Route::get('/transfer', 'TransferController@index');
+
+//Routes for Transfer CRUD and more ..
+
+Route::get('/transfer', "TransferController@index");
+
+Route::get('/transfer/single', "TransferController@single");
+Route::post('/transfer/single', "TransferController@single");
+
+Route::get('/transfer/bulk', "TransferController@bulk");
+
+Route::get('/transfer/history', "TransferController@history");

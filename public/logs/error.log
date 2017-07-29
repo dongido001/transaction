@@ -142,3 +142,63 @@ Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token
 {"error":"The resource owner or authorization server denied the request."}
 
 ---------
+[2017-07-28 01:41:39]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=rgwRtCURHszw2qTT0g6IqlKPXa9hajHlk1IxIZcX
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=rgwRtCURHszw2qTT0g6IqlKPXa9hajHlk1IxIZcX` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-28 01:46:52]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=7houNbKWV07AIHtUA9RgL9Ha8omqaqk4nPxijgzX
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=7houNbKWV07AIHtUA9RgL9Ha8omqaqk4nPxijgzX` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-28 01:47:11]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=wD2gqY1oHAV77BfC2NzQ44ayfetIopfvsXwz2dsG
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=wD2gqY1oHAV77BfC2NzQ44ayfetIopfvsXwz2dsG` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-28 01:47:34]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=Cbg2lfhdOBzzmLjVXYNqPQ2LyJdsrw0saih91ciQ
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=Cbg2lfhdOBzzmLjVXYNqPQ2LyJdsrw0saih91ciQ` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-28 01:48:15]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=aAempYmZrNTdMK0duwck9IHloMTilSxQck5ZtH2y
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=aAempYmZrNTdMK0duwck9IHloMTilSxQck5ZtH2y` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-29 11:46:52]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=KLNj7yvzk8GkTkFQfkR6alLlCLHdUbbqmJ5FGjOQ
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=KLNj7yvzk8GkTkFQfkR6alLlCLHdUbbqmJ5FGjOQ` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-29 11:47:16]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=Y83jABWQCZEw8cCqD0VV17l0BKEPiORyLpFwXgCo
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=Y83jABWQCZEw8cCqD0VV17l0BKEPiORyLpFwXgCo` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-29 11:48:19]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=nMcd32Jz8GxpSkUNpW0ZABxingFDCgeUbTROm6XC
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=nMcd32Jz8GxpSkUNpW0ZABxingFDCgeUbTROm6XC` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-29 12:59:51]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=kEeaCIYRk3b80hDSDO9zR2Guimvzhg1rFqxm2rMs
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=kEeaCIYRk3b80hDSDO9zR2Guimvzhg1rFqxm2rMs` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------
+[2017-07-29 03:11:27]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=V2fQA70GHTwOKy6Ovq81oMzBlJJj0y6qeJtVaOVJ
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=V2fQA70GHTwOKy6Ovq81oMzBlJJj0y6qeJtVaOVJ` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------

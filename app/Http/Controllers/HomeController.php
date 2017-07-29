@@ -24,9 +24,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $data['user_data'] = session('auth_user');
-
-        return view('dashboard', $data);
+        return view('dashboard');
     }
 
     /**

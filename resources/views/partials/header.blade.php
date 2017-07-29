@@ -19,7 +19,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs"> {{ $user_data['name'] }} </span>
+              <span class="hidden-xs"> {{ session('auth_user')['name'] }} </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -27,8 +27,8 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ $user_data['name'] }}
-                  <small> {{ $user_data['email'] }} </small>
+                  {{ session('auth_user')['name'] }}
+                  <small> {{ session('auth_user')['email'] }} </small>
                 </p>
               </li>
 

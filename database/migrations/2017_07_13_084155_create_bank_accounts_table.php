@@ -16,7 +16,8 @@ class CreateBankAccountsTable extends Migration
         Schema::create('bank_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('bank_id', false, true)->lenght(11);
-            $table->string('account_namer', 100);
+            $table->string('bank_name', 100);
+            $table->string('account_name', 100);
             $table->string('account_number', 100);
             $table->timestamps();
             $table->softDeletes();

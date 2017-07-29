@@ -26,19 +26,39 @@
     <section class="content">
 
 	<div class="row">
+
+        @if ( session('status') ) 
+
+            @if ( session('status') == 'success' )
+                <div class="alert alert-success">
+                  Bank account successfully saved!.
+                 </div>
+            @else
+
+                <div class="alert alert-danger">
+                   There was an error
+                </div>
+
+            @endif
+
+        @endif
+
         <!-- panel preview -->
         <div class="col-md-7 text-center mcontent"><br>
             <div class="panel panel-default">
                 <div class="panel-body form-horizontal payment-form">
-              <form id="submit_transfer" action="/transaction_process">
+              <form id="submit_transfer" action="/transfer/single" method="POST">
+
+                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                  <div class="row">
                     <div class="col-md-4">
                        Select Bank
                     </div>
                     <div class="col-md-8">
-                        <select class="form-control" id="parent_banks" name="parent_bank">
+                        <select class="form-control" id="parent_banks" name="parent_bank" required>
                            <?php foreach( $banks as $bank ):?>
-                               <option value="<?= $bank ?>"> <?= $bank ?> </option>
+                               <option value="<?= $bank->id ?>"> <?= $bank->bank_name ?> </option>
                            <?php endforeach; ?>
                         </select>
                     </div>
@@ -49,8 +69,8 @@
                       Account Numbers
                     </div>
                     <div class="col-md-8">
-                        <select class="form-control" id="bank_accounts" name="parent_bank_account">
-                            <option>Default select</option>
+                        <select class="form-control" id="parent_bank_account" name="parent_bank_account"  required>
+                            <option>Please select</option>
                         </select>
                     </div>
                  </div><br />
@@ -61,7 +81,7 @@
                     </div>
                     <div class="col-md-7">
                         <div class="form-group row">
-                             <input class="form-control" type="number" value="" id="example-number-input" name="amount">
+                             <input class="form-control" type="number" value="" id="example-number-input" name="amount"  required>
                         </div>
                     </div>
                  </div>
@@ -72,7 +92,7 @@
                     </div>
                     <div class="col-md-7">
                           <div class="form-group">
-                             <textarea class="form-control" rows="3" id="comment" name="comment"></textarea>
+                             <textarea class="form-control" rows="3" id="comment" name="comment"  required></textarea>
                          </div>
                     </div>
                  </div>
@@ -82,9 +102,9 @@
                        Target bank
                     </div>
                     <div class="col-md-8">
-                        <select class="form-control" id="target_banks" name="target_bank">
+                        <select class="form-control" id="target_banks" name="target_bank"  required>
                            <?php foreach( $banks as $bank ):?>
-                               <option value="<?= $bank ?>"> <?= $bank ?> </option>
+                               <option value="<?= $bank->id ?>"> <?= $bank->bank_name ?> </option>
                            <?php endforeach; ?>
                         </select>
                     </div>
@@ -95,7 +115,7 @@
                        Account Numbers
                     </div>
                     <div class="col-md-8">
-                        <select class="form-control" id="target_account_numbers" name="target_account_number">
+                        <select class="form-control" id="target_account_numbers" name="target_account_number"  required>
                             <option>Default select</option>
                         </select>
                     </div>

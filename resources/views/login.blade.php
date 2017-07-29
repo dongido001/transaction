@@ -26,10 +26,13 @@
     @if (isset($error) and $error)
     <p class="login-box-msg error">{{$error}}</p>
     @else
-    <p class="login-box-msg">Sign in and ye may enter!</p>
+    <p class="login-box-msg">Sign in</p>
     @endif
 
     <form role="form" method="POST" action="/login">
+
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
