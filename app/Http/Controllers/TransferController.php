@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Banks;
+use App\Helpers\TransferHelper;
 
 class TransferController extends Controller
 {
@@ -15,6 +16,7 @@ class TransferController extends Controller
     public function index()
     {
         //
+        dd( (new TransferHelper)->makeTransfer('','','','','','','','') );
 
         $data['banks'] = Banks::all()->reject( function( $bank ){
              

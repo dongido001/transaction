@@ -3,17 +3,23 @@
 
 namespace App\Helpers;
 
+use Unirest;
+
 class TransferHelper{
 
    public $request_payload;
 
+   public $api_url;
+
    function __construct() {
 
-       this->$request_payload = json_encode( [
-             "apiKey" => env('PAYSTACK_APIKEY'),
-             "secret" => env('PAYSTACK_SECRET')
+       $this->request_payload = json_encode( [
+             "apiKey" => env('PAYSTACK_API_KEY'),
+             "secret" => env('PAYSTACK_API_SECRET')
           ]
        );
+
+       $this->api_url = env('PAYSTACK_API_URL');
    }
 
   /**
@@ -22,46 +28,35 @@ class TransferHelper{
   * @param $url - String, probably the end point link.
   * @param $params - Array, The Request content
   */  
-  public static function RequestGetter( $url, $params = [] ){
+  public function RequestGetter( $url, $params = [] ){
 
-     $return = \Web::instance()->request(
-          
-          $f3->get('API_BASE_URL') . $url,
-           [
-              'header'=> [
-                  'Accept: application/json',
-                  'Authorization: '.self::getAccessCode($f3),
-                  'Content-Type: application/json',
-               ],
-              'method'  => 'POST',
-              'content' => $params,
-          ]
-      );
-     
-     return $return['body'];
+      $headers = [
+                    'Accept' => 'application/json', 
+                    'Content-Type' => 'application/json', 
+                    'Authorization' => $this->getAccessCode()
+                 ];
 
+      $body = Unirest\Request\Body::json($params);
+
+      $response = Unirest\Request::post($this->api_url . $url, $headers, $body);
+
+      return $response->body;
   }
 
   /**
   * Get access token from the api so we can query the endpoints without problems.
   * 
   */  
-  public static function getAccessCode(){
+  public function getAccessCode(){
 
-     $return = \Web::instance()->request(
-          
-          $f3->get('API_BASE_URL') . '/v1/merchant/verify',
-          array(
-              'header'=>array(
-                  'Content-Type: application/json',
-              ),
-              'method'  =>'POST',
-              'content' => this->$request_payload,
-          )
-      );
-     
+      $headers = [
+                   'Accept' => 'application/json', 
+                   'Content-Type' =>  'application/json'
+                 ];
 
-     return json_decode(($return['body']), true)['token'];
+      $response = Unirest\Request::post($this->api_url . '/v1/merchant/verify', $headers, $this->request_payload);
+
+     return $response->body->token;
 
   }  
 
@@ -69,9 +64,9 @@ class TransferHelper{
   * Get list of banks available on the Api.
   * 
   */  
-  public static function getBanks(){
+  public function getBanks(){
 
-    return self::RequestGetter('/banks', []);
+    return $this->RequestGetter('/banks', []);
     
   }
 
@@ -81,9 +76,9 @@ class TransferHelper{
   * @param $account_number, String
   * @param $bank_code, String
   */  
-  public static function authenticateAccountNumber($account_number, $bank_code){
+  public function authenticateAccountNumber($account_number, $bank_code){
 
-     return self::RequestGetter('/v1/transfer', this->$request_payload);
+     return $this->RequestGetter('/v1/transfer', $this->request_payload);
 
   }   
 
@@ -93,7 +88,7 @@ class TransferHelper{
   * @param $transaction_ref - String, Transaction reference ID.
   * @param $auth_type - String, OTP or Account_Credit or AnyType of auth that comes in :D
   */  
-  public static function validateTransactionAuth($tranaction_ref, $auth_type, $auth_value)
+  public function validateTransactionAuth($tranaction_ref, $auth_type, $auth_value)
   {
      
      $payload = json_encode(
@@ -116,9 +111,9 @@ class TransferHelper{
   * @param $recipient_account_number - String.
   * @param $recipient_bank - String.
   */  
-  public static function makeTransfer($sender_bank, $sender_account_number, $recipient_bank, $recipient_account_number, $amount, $comment){
+  public function makeTransfer($sender_bank, $sender_account_number, $recipient_bank, $recipient_account_number, $amount, $comment){
 
-      $payload = json_encode( 
+      $payload =
       	[
             "firstname"                => "Onwuka",
             "lastname"                 => "Gideon",
@@ -135,9 +130,10 @@ class TransferHelper{
             "fee"                      => 45,
             "medium"                   => "web",
             "redirectUrl"              => "https://google.com"
-        ]
-     );
+       ];
 
-      return self::RequestGetter('/v1/transfer', $payload);
+      return $this->RequestGetter('/v1/transfer', $payload);
         
   }
+
+}
