@@ -52,7 +52,7 @@ function makeSingleTransfer(){
   
   event.preventDefault();
   
-   var html = '<div class="alert alert-info" role="alert">'
+   var html = '<div class="alert alert-info" role="alert" id="otp_reference" value="">'
               +'<strong>Transfer in progress: </strong> sending ...'
               +'</div>';
 
@@ -70,6 +70,8 @@ function makeSingleTransfer(){
 
          //show modal for OTP
          $("#OTP_FORM").modal('show');
+
+         $("#transaction_ref").val(result.data.transfer.flutterChargeReference);
 
          $("#transfer_status").append("good stuff");
      }

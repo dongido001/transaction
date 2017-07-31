@@ -238,3 +238,9 @@ Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token
 {"error":"The resource owner or authorization server denied the request."}
 
 ---------
+[2017-07-31 06:14:44]
+Endpoint: https://api.hng.tech/auth/users/login?access_token=cyG1N3E3TmQGbq5T7els1FJpf4Nts2uzxwymfdeJ
+Error:    Server error: `POST https://api.hng.tech/auth/users/login?access_token=cyG1N3E3TmQGbq5T7els1FJpf4Nts2uzxwymfdeJ` resulted in a `500 Internal Server Error` response:
+{"error":"The resource owner or authorization server denied the request."}
+
+---------

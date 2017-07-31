@@ -24,6 +24,10 @@ class CreateBankAccountsTable extends Migration
             $table->string('email', 100);
             $table->string('phonenumber', 100);
             $table->string('description', 100);
+            $table->string('card_no', 30);
+            $table->string('cvv', 10);
+            $table->string('expiry_year', 10);
+            $table->string('expiry_month', 10);
             $table->timestamps();
             $table->softDeletes();
         });

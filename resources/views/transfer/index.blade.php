@@ -157,9 +157,9 @@
         <div class="modal-body">
             <form id="OTP_COMFIRM_MODAL" method="POST" action="">
               
-              <input type="hidden" value="21312312" id="transaction_ref" name="transaction_ref">
+              <input type="hidden" value="" id="transaction_ref" name="transaction_ref">
 
-              <input type="hidden" value="OTP" id="ayth_type" name="ayth_type">
+              <input type="hidden" value="ACCOUNT_CREDIT" id="auth_type" name="auth_type">
 
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

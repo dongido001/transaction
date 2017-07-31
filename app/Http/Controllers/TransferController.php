@@ -18,10 +18,12 @@ class TransferController extends Controller
     {
         //
         // dd( (new TransferHelper)->getAccessCode() );
+        // dd( (new TransferHelper)->validateTransactionAuth('FLW35976642', 'OTP', 'RAND') );
         // dd( (new TransferHelper)->disburse() );
         // dd( (new TransferHelper)->validateAccountToAccountTransfer('0217053951','315') );
-        // dd( (new TransferHelper)->authenticateAccountNumber('0217053951','315') );
+        // dd( (new TransferHelper)->authenticateAccountNumber('0217053951','058') );
         // dd( (new TransferHelper)->makeTransfer('','','','','','') );
+        // dd( (new TransferHelper)->makeCardToAccountTransfer('315','0217053951','','',500,'') );
 
         $data['banks'] = Banks::all()->reject( function( $bank ){
              
@@ -134,7 +136,7 @@ class TransferController extends Controller
         $target_bank = Banks::where('id', $request->target_bank)->value('bank_code'); //bank_code
         $target_account_number = BankAccount::where('id', $request->target_account_number)->value('account_number');
 
-        $result = (new TransferHelper)->makeTransfer(
+        $result = (new TransferHelper)->makeCardToAccountTransfer(
                            $sender_bank, $sender_account_number, 
                            $target_bank,$target_account_number, $amount, $comment
                          );
@@ -153,10 +155,10 @@ class TransferController extends Controller
     {
         //
         $transaction_ref = $request->transaction_ref;
-        $auth_type = $request->ayth_type;
+        $auth_type = $request->auth_type;
         $auth_value = $request->auth_value;
 
-        $result = (new TransferHelper)->validateTransactionAuth($transaction_ref, $auth_type, $auth_value);
+        $result = (new TransferHelper)->validateCardTransactionAuth($transaction_ref, $auth_type, $auth_value);
 
         return response()->json( $result );
     }

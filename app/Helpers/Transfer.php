@@ -82,7 +82,12 @@ class TransferHelper{
   */  
   public function authenticateAccountNumber($account_number, $bank_code){
 
-     return $this->RequestGetter('/v1/resolve/account', array() );
+     $count = [
+         'account_number' => $account_number, 
+         'bank_code'      => $bank_code
+       ];
+
+     return $this->RequestGetter('/v1/resolve/account', $count );
 
   }   
 
@@ -118,6 +123,37 @@ class TransferHelper{
   }  
 
   /**
+  * Validates authentication sent to client when Transaction process was triggerd (Card To Account).
+  *
+  * @param $transaction_ref - String, Transaction reference ID.
+  * @param $auth_type - String, OTP or Account_Credit or AnyType of auth that comes in :D
+  */  
+  public function validateCardTransactionAuth($transaction_ref, $auth_type, $auth_value)
+  {
+     
+     $payload = [
+
+            "transactionRef" => $transaction_ref, //Flutterwave reference from /v1/transfer call
+            "authType"       => $auth_type, //OTP or ACCOUNT_CREDIT
+            "authValue"      => $auth_value, //Auth value
+        ];
+
+     $result =  $this->RequestGetter('/v1/transfer/charge/auth/card', $payload);
+
+     if( $result->status == 'success'){
+        
+        $result = 'Transaction comfirmed';
+     }
+     else{
+
+        $result = 'Error: ' . $result->message;
+     }
+
+     return $result;
+
+  } 
+
+  /**
   * Makes Transfer of real money from one account to another.
   * 
   * @param $sender_account_number - String.
@@ -143,6 +179,7 @@ class TransferHelper{
             "sender_bank"              => $sender_bank,
             "apiKey"                   => "ts_X9TLQQQJTMDHVA18YN4Hc",
             "amount"                   => $amount,
+            "chargeMethod"             => "OTP",
             "fee"                      => 45,
             "medium"                   => "web",
             "redirectUrl"              => "https://google.com"
@@ -154,11 +191,11 @@ class TransferHelper{
       if( $result->status == "success"){
          
          //store transaction ref in the DB.
-        
+
          $transfer = new Transfer;
-         $transfer->reference = $result->data->flutterChargeReference;
+         $transfer->reference = $result->data->transfer->flutterChargeReference;
          $transfer->status = 'in_progress';
-         $transfer->data = $result->data;
+         $transfer->data = json_encode($result->data);
 
          $transfer->save();
 
@@ -173,6 +210,72 @@ class TransferHelper{
         
   }
 
+
+  /**
+  * Makes Transfer of real money from card to account.
+  * 
+  * @param $sender_account_number - String.
+  * @param $sender_bank - String.
+  * @param $recipient_account_number - String.
+  * @param $recipient_bank - String.
+  */  
+  public function makeCardToAccountTransfer($sender_bank, $sender_account_number, $recipient_bank, $recipient_account_number, $amount, $comment){
+
+      $account_details = BankAccount::where('account_number', $sender_account_number)->first();
+
+      $payload =
+        [
+
+              "firstname"                => $account_details->firstname,
+              "lastname"                 => $account_details->lastname,
+              "email"                    => $account_details->email,
+              "phonenumber"              => $account_details->phonenumber,
+              "recipient_bank"           => $recipient_bank,
+              "recipient_account_number" => $recipient_account_number,
+              "charge_with"              => "card",
+              "recipient"                => "account",
+              "amount"                   => $amount,
+              // "fee"                      => 45,
+              "medium"                   => "web",
+              "redirectUrl"              => "https://google.com",
+               "card_no"                 => $account_details->card_no,
+               "cvv"                     => $account_details->cvv,
+               "pin"                     => $account_details->pin, //optional required when using VERVE card
+               "expiry_year"             => $account_details->expiry_year,
+               "expiry_month"            => $account_details->expiry_month,
+               "charge_auth"=>"PIN", //optional required where card is a local Mastercard
+               "apiKey"                  => "0A67UISAG6YN99XV2AJA",
+               "amount"                  => 500,
+               "narration"               => "Gucchi shirt payment", //Optional
+               // "fee"=>45,
+               "medium"                  => "web",
+               "redirecturl"             => "https://google.com"
+       ];
+
+      $result =  $this->RequestGetter('/v1/transfer', $payload);
+
+
+      if( $result->status == "success"){
+         
+         //store transaction ref in the DB.
+
+         $transfer = new Transfer;
+         $transfer->reference = $result->data->transfer->flutterChargeReference;
+         $transfer->status = 'in_progress';
+         $transfer->data = json_encode($result->data);
+
+         $transfer->save();
+
+         $result = ['status'=>'success', 'data' => $result->data ];
+      }
+      else{
+
+         $result = ['status'=>'error', 'data' => $result->message ];
+      }
+
+      return $result;
+        
+  }
 
   /**
   * Makes Transfer of real money from one account to another.

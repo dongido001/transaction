@@ -16,6 +16,8 @@ class BankController extends Controller
     public function index()
     {
         //
+
+        return view('banks.list_banks', $data);
     }
 
     /**

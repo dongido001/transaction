@@ -14,12 +14,12 @@ class CreateTrasnsferTable extends Migration
     public function up()
     {
         //
-        Schema::create('transfer', function (Blueprint $table) {
+        Schema::create('transfers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('reference', 100);
-            $table->string('by', 100);
+            $table->string('by', 100)->nullable();
             $table->string('status', 100); //failed, in_progress, completed
-            $table->string('data', 100); //failed, in_progress, completed
+            $table->longText('data'); //failed, in_progress, completed
             $table->timestamps();
         });
     }
