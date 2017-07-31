@@ -128,25 +128,24 @@ class TransferHelper{
   * @param $transaction_ref - String, Transaction reference ID.
   * @param $auth_type - String, OTP or Account_Credit or AnyType of auth that comes in :D
   */  
-  public function validateCardTransactionAuth($transaction_ref, $auth_type, $auth_value)
+  public function validateCardTransactionAuth($transaction_ref, $auth_value)
   {
-     
+
      $payload = [
 
             "transactionRef" => $transaction_ref, //Flutterwave reference from /v1/transfer call
-            "authType"       => $auth_type, //OTP or ACCOUNT_CREDIT
-            "authValue"      => $auth_value, //Auth value
+            "otp"      => $auth_value, //Auth value
         ];
 
      $result =  $this->RequestGetter('/v1/transfer/charge/auth/card', $payload);
 
      if( $result->status == 'success'){
         
-        $result = 'Transaction comfirmed';
+         $result = ['status'=>'success', 'data' => $result->data ];
      }
-     else{
+      else{
 
-        $result = 'Error: ' . $result->message;
+         $result = ['status'=>'error', 'data' => $result->message ];
      }
 
      return $result;
@@ -240,7 +239,7 @@ class TransferHelper{
               "redirectUrl"              => "https://google.com",
                "card_no"                 => $account_details->card_no,
                "cvv"                     => $account_details->cvv,
-               "pin"                     => $account_details->pin, //optional required when using VERVE card
+               "pin"                     => "2255", //optional required when using VERVE card
                "expiry_year"             => $account_details->expiry_year,
                "expiry_month"            => $account_details->expiry_month,
                "charge_auth"=>"PIN", //optional required where card is a local Mastercard

@@ -38,19 +38,20 @@
                   <table class="table table-striped">
                     <tr>
                       <th style="width: 20px">#</th>
-                      <th>Bank Name</th>
-                      <th>Account Name</th>
-                      <th>Account Number</th>
-                      <th>Action</th>
+                      <th>Transfer Reference</th>
+                      <th>Initiated By</th>
+                      <th>Status</th>
+                      <th>Date</th>
                     </tr>
 
-                  @foreach ($bank_accounts as $account)
+                  @foreach ($transfers as $transfer)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
-                      <td>{{ $account->bank_name }}</td>
-                      <td>{{ $account->account_name }}</td>
-                      <td>{{ $account->account_number }}</td>
-                      <td> <a href="/bank_account/{{ $account->id }}/edit"> Edit </a> | <a href=""> Delete </a> </td>
+                      <td>{{ $transfer->reference }}</td>
+                      <td>{{ $transfer->by }}</td>
+                      <td>{{ $transfer->status }}</td>
+                      <td>{{ $transfer->created_at }}</td>
+                      <td> Edit | Delete </td>
                     </tr>
                   @endforeach
 

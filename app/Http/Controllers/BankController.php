@@ -17,6 +17,16 @@ class BankController extends Controller
     {
         //
 
+
+        //TODO, paginate later...
+
+        $data['banks'] = Banks::all()->reject( function( $bank ){
+             
+             //basically, return only bank accounts that have both bank_name and account_number...
+             return ( empty($bank->bank_name) OR empty($bank->bank_code) );
+
+        });
+
         return view('banks.list_banks', $data);
     }
 
@@ -94,9 +104,11 @@ class BankController extends Controller
      * @param  \App\Banks  $banks
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banks $banks)
+    public function edit(Banks $banks, $id)
     {
         //
+       
+       dd($id);
     }
 
     /**

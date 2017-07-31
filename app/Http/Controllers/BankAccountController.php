@@ -76,6 +76,10 @@ class BankAccountController extends Controller
        $bank_account->email = $request->email;
        $bank_account->phonenumber = $request->phone_number;
        $bank_account->description = $request->description;
+       $bank_account->expiry_year = $request->expiry_year;
+       $bank_account->expiry_month = $request->expiry_month;
+       $bank_account->cvv = $request->cvv;
+       $bank_account->card_no = $request->card_no;
 
        $bank_account->save();
 
@@ -101,6 +105,8 @@ class BankAccountController extends Controller
     public function show($id)
     {
         //
+
+
     }
     
 
@@ -132,7 +138,18 @@ class BankAccountController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $data['bank_account'] = BankAccount::where('id', $id)->first();
+
+        $data['banks'] = Banks::all()->reject( function( $bank ){
+             
+             //basically, return only banks that have both bank_code and bank_name...
+             return ( empty($bank->bank_code) OR empty($bank->bank_name) );
+
+        });
+
+        return view('banks.edit_bank_account', $data);
+
     }
 
     /**

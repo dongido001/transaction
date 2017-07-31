@@ -46,8 +46,8 @@
                   @foreach ($banks as $bank)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
-                      <td>{{ $account->bank_code }}</td>
-                      <td>{{ $account->bank_name }}</td>
+                      <td>{{ $bank->bank_code }}</td>
+                      <td>{{ $bank->bank_name }}</td>
                       <td> Edit | Delete </td>
                     </tr>
                   @endforeach

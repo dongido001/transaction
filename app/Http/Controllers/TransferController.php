@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Banks;
 use App\Models\BankAccount;
 use App\Helpers\TransferHelper;
+use App\Models\Transfer;
 
 class TransferController extends Controller
 {
@@ -18,10 +19,11 @@ class TransferController extends Controller
     {
         //
         // dd( (new TransferHelper)->getAccessCode() );
-        // dd( (new TransferHelper)->validateTransactionAuth('FLW35976642', 'OTP', 'RAND') );
+        // dd( (new TransferHelper)->validateTransactionAuth('THRI/FLW36169178', 'OTP', '21462474') );
+        // dd( (new TransferHelper)->validateCardTransactionAuth('THRI/FLW36169178', 'OTP', '21462474') );s
         // dd( (new TransferHelper)->disburse() );
         // dd( (new TransferHelper)->validateAccountToAccountTransfer('0217053951','315') );
-        // dd( (new TransferHelper)->authenticateAccountNumber('0217053951','058') );
+        // dd( (new TransferHelper)->authenticateAccountNumber('0028001752','063') );
         // dd( (new TransferHelper)->makeTransfer('','','','','','') );
         // dd( (new TransferHelper)->makeCardToAccountTransfer('315','0217053951','','',500,'') );
 
@@ -153,12 +155,20 @@ class TransferController extends Controller
      */
     public function comfirmOtp(Request $request)
     {
-        //
+
         $transaction_ref = $request->transaction_ref;
-        $auth_type = $request->auth_type;
         $auth_value = $request->auth_value;
 
-        $result = (new TransferHelper)->validateCardTransactionAuth($transaction_ref, $auth_type, $auth_value);
+        $result = (new TransferHelper)->validateCardTransactionAuth($transaction_ref, $auth_value);
+        
+        if( $result->status == "success"){
+           
+           Transfer::where('reference', $transaction_ref)->update( ['status' => 'success'] );
+        }
+        else{
+
+            Transfer::where('reference', $transaction_ref)->update( ['status' => 'failed'] );
+        }
 
         return response()->json( $result );
     }
@@ -182,6 +192,11 @@ class TransferController extends Controller
     public function history()
     {
         //
+
+        $data['transfers'] = Transfer::all();
+
+        return view('transfer.transfer_history', $data);
+
     }
 
 }

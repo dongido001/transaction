@@ -159,7 +159,7 @@
               
               <input type="hidden" value="" id="transaction_ref" name="transaction_ref">
 
-              <input type="hidden" value="ACCOUNT_CREDIT" id="auth_type" name="auth_type">
+              <input type="hidden" value="OTP" id="auth_type" name="auth_type">
 
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

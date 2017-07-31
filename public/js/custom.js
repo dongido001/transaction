@@ -51,14 +51,8 @@ $("#target_banks").change(populate_target_bank_account);
 function makeSingleTransfer(){
   
   event.preventDefault();
-  
-   var html = '<div class="alert alert-info" role="alert" id="otp_reference" value="">'
-              +'<strong>Transfer in progress: </strong> sending ...'
-              +'</div>';
 
-       $("#transfer_status").append(html);
-
-  //$("#single_transfer_submit").attr("disabled", true);
+  $("#single_transfer_submit").attr("disabled", true);
 
   var post_data = $( this ).serializeArray();
 
@@ -66,19 +60,17 @@ function makeSingleTransfer(){
       
      if( result.status == "success"){
 
-         alert("transfer successfull");
+         alert("An OTP has been sent to your phone, please comfirm");
 
          //show modal for OTP
          $("#OTP_FORM").modal('show');
 
          $("#transaction_ref").val(result.data.transfer.flutterChargeReference);
 
-         $("#transfer_status").append("good stuff");
      }
      else{
         
          alert(result.data);
-         $("#transfer_status").append("something went wrong..");
      }
 
      $("#single_transfer_submit").attr("disabled", false);
@@ -95,10 +87,39 @@ function comfirmOTP(){
 
    var post_data = $( this ).serializeArray();
 
+   var success = '<div class="alert alert-success" role="alert" id="otp_reference" value="">'
+                 +'<strong>Transfer successful: </strong>'
+                 +'</div>';
+
+   var error   = '<div class="alert alert-danger" role="alert" id="otp_reference" value="">'
+                 +'<strong>Transfer was not successful: </strong>'
+                 +'</div>';
+
+   $("#OTP_COMFIRM_SUBMIT").attr("disabled", true);
 
    function submit(data){
 
-      alert(data);
+      if( data.status == 'success'){
+
+         $("#transfer_status").append(success);
+
+         //hide modal for OTP
+         $("#OTP_FORM").modal('hide');
+
+         $("#OTP_COMFIRM_SUBMIT").attr("disabled", false);
+
+      }
+      else{
+
+         //$("#transfer_status").append(error);
+
+         alert(data.data);
+
+         $("#OTP_COMFIRM_SUBMIT").attr("disabled", false);
+
+      }
+
+      
    }
    $.post( "/transfer/comfirm_otp", post_data, submit);
 }
