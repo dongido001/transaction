@@ -18,6 +18,8 @@ Route::get('/transfer', "TransferController@index");
 
 Route::get('/transfer/single', "TransferController@single");
 Route::post('/transfer/single', "TransferController@single");
+Route::post('/transfer/api_single', "TransferController@apiSingleTransfer");
+Route::post('/transfer/comfirm_otp', "TransferController@comfirmOtp");
 
 Route::get('/transfer/bulk', "TransferController@bulk");
 

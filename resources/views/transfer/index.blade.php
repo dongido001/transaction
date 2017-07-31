@@ -47,7 +47,7 @@
         <div class="col-md-7 text-center mcontent"><br>
             <div class="panel panel-default">
                 <div class="panel-body form-horizontal payment-form">
-              <form id="submit_transfer" action="/transfer/single" method="POST">
+              <form action="/transfer/single" method="POST" id="form_single_transfer_submit">
 
                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -122,17 +122,17 @@
                 </div><br />
 
                 </div>
-                   <button id="submit_button" type="submit" role="button" class="btn btn-primary btn-block" >SUBMIT</button><br />
+                   <button id="single_transfer_submit" type="submit" role="button" class="btn btn-primary btn-block" >SUBMIT</button><br />
             </form> 
             </div>  
                    
         </div> <!-- / panel preview -->
 
         <div class="col-md-5 mcontent"><br>
-            <h5> Transaction Processes ...</h5> <br />
+            <h5> Current Transactions: </h5> <br />
             <div class="row">
-                <div class="col-md-12 text-left">       
-                     sending 1000 to 1000 Account Number ..                  
+                <div class="col-md-12 text-left" id="transfer_status">       
+         
                 </div>
             </div>
             <div class="row text-left">
@@ -144,6 +144,40 @@
 	</div>
 
   </section>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="OTP_FORM" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Enter OTP</h4>
+        </div>
+        <div class="modal-body">
+            <form id="OTP_COMFIRM_MODAL" method="POST" action="">
+              
+              <input type="hidden" value="21312312" id="transaction_ref" name="transaction_ref">
+
+              <input type="hidden" value="OTP" id="ayth_type" name="ayth_type">
+
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">OTP</label>
+                <input type="text" class="form-control" id="auth_value" placeholder="1234" name="auth_value">
+                <small id="authType__" class="form-text text-muted">Enter the OTP that was sent to your email or phone.</small>
+              </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id="OTP_COMFIRM_SUBMIT">Send</button>
+        </div>
+
+            </form>
+      </div>
+    </div>
+  </div>
 
 @endsection
 

@@ -19,6 +19,11 @@ class CreateBankAccountsTable extends Migration
             $table->string('bank_name', 100);
             $table->string('account_name', 100);
             $table->string('account_number', 100);
+            $table->string('firstname', 100);
+            $table->string('lastname', 100);
+            $table->string('email', 100);
+            $table->string('phonenumber', 100);
+            $table->string('description', 100);
             $table->timestamps();
             $table->softDeletes();
         });

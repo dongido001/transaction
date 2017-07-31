@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Banks;
+use App\Models\BankAccount;
 use App\Helpers\TransferHelper;
 
 class TransferController extends Controller
@@ -16,7 +17,11 @@ class TransferController extends Controller
     public function index()
     {
         //
-        dd( (new TransferHelper)->makeTransfer('','','','','','','','') );
+        // dd( (new TransferHelper)->getAccessCode() );
+        // dd( (new TransferHelper)->disburse() );
+        // dd( (new TransferHelper)->validateAccountToAccountTransfer('0217053951','315') );
+        // dd( (new TransferHelper)->authenticateAccountNumber('0217053951','315') );
+        // dd( (new TransferHelper)->makeTransfer('','','','','','') );
 
         $data['banks'] = Banks::all()->reject( function( $bank ){
              
@@ -104,11 +109,56 @@ class TransferController extends Controller
     {
         //
 
-        dd($request);
-
-        $request->session()->flash('status', 'success');
+        // $request->session()->flash('status', 'success');
 
         return $this->index();
+    }
+
+    /**
+     * Make single Transfer, from one account to another
+     * 
+     *  $sender_bank, $sender_account_number, $recipient_bank, $recipient_account_number, $amount, $comment
+     * @return json
+     */
+    public function apiSingleTransfer(Request $request)
+    {
+        //
+        
+        //TODO, return error when one or more field is not filled...
+        $amount = $request->amount;
+        $comment = $request->comment;
+
+        $sender_bank = Banks::where('id', $request->parent_bank)->value('bank_code'); //bank_code
+        $sender_account_number =  BankAccount::where('id', $request->parent_bank_account)->value('account_number');  
+  
+        $target_bank = Banks::where('id', $request->target_bank)->value('bank_code'); //bank_code
+        $target_account_number = BankAccount::where('id', $request->target_account_number)->value('account_number');
+
+        $result = (new TransferHelper)->makeTransfer(
+                           $sender_bank, $sender_account_number, 
+                           $target_bank,$target_account_number, $amount, $comment
+                         );
+
+        return response()->json( $result );
+    }
+
+
+    /**
+     * Comfirm transaction
+     * 
+     *  $sender_bank, $sender_account_number, $recipient_bank, $recipient_account_number, $amount, $comment
+     * @return json
+     */
+    public function comfirmOtp(Request $request)
+    {
+        //
+        $transaction_ref = $request->transaction_ref;
+        $auth_type = $request->ayth_type;
+        $auth_value = $request->auth_value;
+
+        $result = (new TransferHelper)->validateTransactionAuth($transaction_ref, $auth_type, $auth_value);
+
+        return response()->json( $result );
     }
 
     /**

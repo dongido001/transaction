@@ -13,14 +13,12 @@ class BanksTableSeeder extends Seeder
     {
         //
 
-        $banks = ['FIRST CITY MONUMENT BANK PLC', 'UNITY BANK PLC', 'STANBIC IBTC BANK PLC', 'STERLING BANK PLC', 'Aso Savings and Loans', 'ACCESS BANK NIGERIA', 'AFRIBANK NIGERIA PLC', 'DIAMOND BANK PLC', 'ECOBANK NIGERIA PLC', 'ENTERPRISE BANK LIMITED', 'FIDELITY BANK PLC', 'FIRST BANK PLC', 'GTBANK PLC', 'HERITAGE BANK', 'KEYSTONE BANK PLC', 'SKYE BANK PLC', 'STANDARD CHARTERED BANK NIGERIA LIMITED', 'UNION BANK OF NIGERIA PLC', 'UNITED BANK FOR AFRICA (UBA) PLC', 'WEMA BANK PLC', 'ZENITH BANK PLC'];
-
-        $bank_code = [12345, 567, 789, 90743, 2346, 22323, 23323];
+        $banks = json_decode('{"214":"FIRST CITY MONUMENT BANK PLC","215":"UNITY BANK PLC","221":"STANBIC IBTC BANK PLC","232":"STERLING BANK PLC","301":"JAIZ BANK","304":"Stanbic Mobile","305":"PAYCOM","307":"Ecobank Mobile","309":"FBN MOBILE","311":"Parkway","315":"GTBank Mobile Money","322":"ZENITH Mobile","323":"ACCESS MOBILE","401":"Aso Savings and Loans","044":"ACCESS BANK NIGERIA","014":"AFRIBANK NIGERIA PLC","063":"DIAMOND BANK PLC","050":"ECOBANK NIGERIA PLC","084":"ENTERPRISE BANK LIMITED","070":"FIDELITY BANK PLC","011":"FIRST BANK PLC","058":"GTBANK PLC","030":"HERITAGE BANK","082":"KEYSTONE BANK PLC","076":"SKYE BANK PLC","068":"STANDARD CHARTERED BANK NIGERIA LIMITED","032":"UNION BANK OF NIGERIA PLC","033":"UNITED BANK FOR AFRICA PLC","035":"WEMA BANK PLC","057":"ZENITH BANK PLC"}', true);
  
-        foreach($banks as $bank){
+        foreach($banks as $key => $bank){
            
 	        DB::table('banks')->insert([
-	            'bank_code' => $bank_code[ array_rand($bank_code, 1) ],
+	            'bank_code' => $key,
 	            'bank_name' => $bank,
 	        ]);
         }

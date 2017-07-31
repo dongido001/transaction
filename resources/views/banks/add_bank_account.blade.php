@@ -92,6 +92,28 @@
                       <input type="text" class="form-control" name="account_number" placeholder="Account Number" required>
                     </div>
 
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                    </div>
+
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required>
+                    </div>
+
+
+                    <div class="form-group">
+                      <textarea class="form-control" name="description" placeholder="Description" required></textarea>
+                    </div>
+
                     <div class="box-footer clearfix">
                       <button type="submit" class="pull-right btn btn-default" id="save_bank">Save
                         <i class="fa fa-arrow-circle-right"></i></button>

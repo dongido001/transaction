@@ -69,10 +69,13 @@ class BankAccountController extends Controller
        $bank_account->bank_id = $request->bank_id;
 
        $bank_account->bank_name = Banks::where('id', $request->bank_id)->value('bank_name');
-
        $bank_account->account_name = $request->account_name; 
-
        $bank_account->account_number = $request->account_number;
+       $bank_account->firstname = $request->first_name;
+       $bank_account->lastname = $request->last_name;
+       $bank_account->email = $request->email;
+       $bank_account->phonenumber = $request->phone_number;
+       $bank_account->description = $request->description;
 
        $bank_account->save();
 

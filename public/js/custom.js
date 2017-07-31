@@ -46,3 +46,58 @@ function populate_target_bank_account(){
 
 }
 $("#target_banks").change(populate_target_bank_account);
+
+
+function makeSingleTransfer(){
+  
+  event.preventDefault();
+  
+   var html = '<div class="alert alert-info" role="alert">'
+              +'<strong>Transfer in progress: </strong> sending ...'
+              +'</div>';
+
+       $("#transfer_status").append(html);
+
+  //$("#single_transfer_submit").attr("disabled", true);
+
+  var post_data = $( this ).serializeArray();
+
+  function submit(result){
+      
+     if( result.status == "success"){
+
+         alert("transfer successfull");
+
+         //show modal for OTP
+         $("#OTP_FORM").modal('show');
+
+         $("#transfer_status").append("good stuff");
+     }
+     else{
+        
+         alert(result.data);
+         $("#transfer_status").append("something went wrong..");
+     }
+
+     $("#single_transfer_submit").attr("disabled", false);
+  }
+
+  $.post( "/transfer/api_single", post_data, submit);
+}
+$("#form_single_transfer_submit").submit(makeSingleTransfer);
+
+
+function comfirmOTP(){
+  
+   event.preventDefault();
+
+   var post_data = $( this ).serializeArray();
+
+
+   function submit(data){
+
+      alert(data);
+   }
+   $.post( "/transfer/comfirm_otp", post_data, submit);
+}
+$("#OTP_COMFIRM_MODAL").submit(comfirmOTP);
