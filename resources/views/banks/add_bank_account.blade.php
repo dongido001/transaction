@@ -84,34 +84,79 @@
                       </select>
                     </div>
 
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="account_name" placeholder="Account Name" required>
+                    <div class="row">
+                       <div class="col-md-4">
+                          <div class="form-group">
+                            <input type="text" value="" class="form-control" name="account_name" placeholder="Account Name" required>
+                          </div>
+                        </div>
+
+                       <div class="col-md-4">
+                          <div class="form-group">
+                            <input type="text" value="" class="form-control" name="account_number" placeholder="Account Number" required>
+                          </div>
+                        </div>
+
+                       <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                        </div>
+                       </div>
+                    </div>
+
+ 
+                    <div class="row">
+
+                       <div class="col-md-4">
+                          <div class="form-group">
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                          </div>
+                       </div>
+
+                       <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+                       </div>
+
+                       <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required>
+                        </div>
+                       </div>
+
+                    </div>
+ 
+                    <div class="row">
+
+                       <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="text" class="form-control" name="card_no" placeholder="Card no" required>
+                          </div>
+                       </div>
+
+                       <div class="col-md-3">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="cvv" placeholder="cvv" required>
+                        </div>
+                       </div>
+
+                       <div class="col-md-3">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="expiry_year" placeholder="expiry year" required>
+                        </div>
+                       </div>
+
+                       <div class="col-md-3">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="expiry_month" placeholder="expiry month" required>
+                        </div>
+                       </div>
+
                     </div>
 
                     <div class="form-group">
-                      <input type="text" class="form-control" name="account_number" placeholder="Account Number" required>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
-                    </div>
-
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="email" placeholder="Email" required>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="phone_number" placeholder="Phone Number" required>
-                    </div>
-
-
-                    <div class="form-group">
-                      <textarea class="form-control" name="description" placeholder="Description" required></textarea>
+                          <textarea class="form-control" name="description" placeholder="Description" required></textarea>
                     </div>
 
                     <div class="box-footer clearfix">

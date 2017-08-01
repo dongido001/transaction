@@ -83,18 +83,27 @@
 
                       </select>
                     </div>
+                    
+                    <div class="row">
+                       <div class="col-md-4">
+                          <div class="form-group">
+                            <input type="text" value="{{ $bank_account->account_name }}" class="form-control" name="account_name" placeholder="Account Name" required>
+                          </div>
+                        </div>
 
-                    <div class="form-group">
-                      <input type="text" value="{{ $bank_account->account_name }}" class="form-control" name="account_name" placeholder="Account Name" required>
+                       <div class="col-md-4">
+                          <div class="form-group">
+                            <input type="text" value="{{ $bank_account->account_number }}" class="form-control" name="account_number" placeholder="Account Number" required>
+                          </div>
+                        </div>
+
+                       <div class="col-md-4">
+                        <div class="form-group">
+                          <input type="text"  value="{{ $bank_account->firstname }}" class="form-control" name="first_name" placeholder="First Name" required>
+                        </div>
+                       </div>
                     </div>
 
-                    <div class="form-group">
-                      <input type="text" value="{{ $bank_account->account_number }}" class="form-control" name="account_number" placeholder="Account Number" required>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text"  value="{{ $bank_account->firstname }}" class="form-control" name="first_name" placeholder="First Name" required>
-                    </div>
 
                     <div class="form-group">
                       <input type="text" value="{{ $bank_account->lastname }}" class="form-control" name="last_name" placeholder="Last Name" required>

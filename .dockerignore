@@ -1,0 +1,13 @@
+/node_modules
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+public/assets/stylesheets/.sass-cache/
+Homestead.json
+Homestead.yaml
+.env
+*.DS_Store
+.DS_Store
+phinx.yml
+composer.lock
